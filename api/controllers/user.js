@@ -7,11 +7,9 @@ const createUser = (req, res) => {
   const newUser = new User({ username, password });
   newUser.save((err, savedUser) => {
     if (err) {
-      res.status(422);
-      res.json({ '!E: U + P fields needed': err.message });
+      res.status(422).json({ '!E: U + P fields needed': err.message });
       return;
     }
-
     res.json(savedUser);
   });
 };
